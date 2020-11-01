@@ -1,16 +1,16 @@
 FROM node:10
 
-ENV POSTGRES_USERNAME="postgres" \
-    POSTGRES_PASSWORD="7Mshfy_GXLhDDTF*t9Z&" \
-    POSTGRES_HOST=udacity-monolith-to-microservices.cxnfhyr90gh2.eu-west-1.rds.amazonaws.com \
-    POSTGRES_DB=postgres \
-    AWS_BUCKET=udacity-monolith-to-microservices-udacity-account \
-    AWS_REGION=eu-west-1 \
-    AWS_PROFILE=udt \
-    JWT_SECRET=hello \
-    URL=http://localhost \
-    PORT=8081 \
-    ORIGIN_URL=http://localhost:8100
+ENV POSTGRES_USERNAME=$POSTGRES_USERNAME \
+    POSTGRES_PASSWORD=$POSTGRES_PASSWORD \
+    POSTGRES_HOST=$POSTGRES_USERNAME \
+    POSTGRES_DB=$POSTGRES_DB \
+    AWS_BUCKET=$AWS_BUCKET \
+    AWS_REGION=$AWS_REGION \
+    AWS_PROFILE=$AWS_PROFILE \
+    JWT_SECRET=$JWT_SECRET \
+    URL=$URL \
+    PORT=$PORT \
+    ORIGIN_URL=$ORIGIN_URL
 
 WORKDIR /home/node/app
 COPY . .
