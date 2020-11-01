@@ -1,4 +1,6 @@
 language: node_js
+node_js:
+  - 10
 
 services:
   - docker
@@ -10,3 +12,12 @@ install:
 # Scripts to be run such as tests
 before_script:
   - echo "no tests"
+
+script:
+  - docker --version # print the version for logging
+  - docker build -t user-api .
+  - docker tag user-api 31071959/user-api:latest
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push 31071959/user-api
