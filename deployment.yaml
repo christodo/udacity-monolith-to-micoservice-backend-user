@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-api-user
+  labels:
+    app: udagram-api-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-api-user
+  template:
+    metadata:
+      labels:
+        app: udagram-api-user
+    spec:
+      containers:
+      - name: udagram-api-user
+        image: 31071959/user-api
+        resources:
+          limits:
+            cpu: 500m
+            memory: 500M
+          requests:
+            cpu: 100m
+            memory: 200M
